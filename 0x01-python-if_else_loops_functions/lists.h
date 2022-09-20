@@ -1,40 +1,26 @@
-#include "lists.h"
+#ifndef LISTS_H
+#define LISTS_H
+
+#include <stdlib.h>
 
 /**
- * insert_node - Inserts a node in the correct spot in a sorted linked list
- * @head: Pointer to a pointer pointing to the first node in the linked list
- * @number: Number for the new node to have
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
  *
- * Return: Pointer to the new node
+ * Description: singly linked list node structure
+ * for ALX project
  */
-listint_t *insert_node(listint_t **head, int number)
+typedef struct listint_s
 {
-	listint_t *node = *head;
-	listint_t *newnode = malloc(sizeof(listint_t));
+	int n;
+	struct listint_s *next;
+} listint_t;
 
-	if (newnode == NULL)
-		return (NULL);
+size_t print_listint(const listint_t *h);
+listint_t *add_nodeint_end(listint_t **head, const int n);
+void free_listint(listint_t *head);
 
-	newnode->n = number;
+listint_t *insert_node(listint_t **head, int number);
 
-	if (!node)
-	{
-		newnode->next = NULL;
-		*head = newnode;
-		return (newnode);
-	}
-
-	if ((*head)->n > number)
-	{
-		newnode->next = *head;
-		*head = newnode;
-		return (newnode);
-	}
-
-	while (node->next != NULL && node->next->n < number)
-		node = node->next;
-
-	newnode->next = node->next;
-	node->next = newnode;
-	return (newnode);
-}
+#endif /* LISTS_H */
