@@ -1,1 +1,2 @@
-my readme file for this python thins
+0x02. Python - import & modules
+---
