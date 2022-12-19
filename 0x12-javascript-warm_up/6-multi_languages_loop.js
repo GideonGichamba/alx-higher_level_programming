@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const sents = ['C is fun', 'Python is cool', 'Javascript is amazing'];
-for (const sent of sents) {
-  console.log(sent);
-}
+const arr = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
+arr.forEach((value) => {
+  console.log(value);
+});
